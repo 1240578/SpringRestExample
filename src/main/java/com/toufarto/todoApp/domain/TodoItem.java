@@ -8,7 +8,7 @@ public class TodoItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
-    private long id;
+    private Long id;
 
     @Getter
     private String description;

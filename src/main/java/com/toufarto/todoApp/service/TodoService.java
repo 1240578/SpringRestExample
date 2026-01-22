@@ -3,7 +3,7 @@ package com.toufarto.todoApp.service;
 import com.toufarto.todoApp.domain.TodoItem;
 import com.toufarto.todoApp.domain.TodoList;
 import com.toufarto.todoApp.repository.TodoListRepository;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -28,7 +28,7 @@ public class TodoService {
     @Transactional
     public TodoList createList(String name) {
         TodoList list = new TodoList(name);
-        return repository.save(list);
+        return repository.saveAndFlush(list);
     }
 
     @Transactional
@@ -46,7 +46,7 @@ public class TodoService {
         TodoList list = getListOrThrow(listId);
         TodoItem item = new TodoItem(description);
         list.addItem(item);
-        repository.save(list);
+        repository.saveAndFlush(list);
         return item;
     }
 

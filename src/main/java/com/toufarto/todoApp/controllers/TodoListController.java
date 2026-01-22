@@ -58,7 +58,6 @@ public class TodoListController {
         TodoItem item = service.addItem(listId, req.description());
         URI location = uri.path("/api/v1/lists/{listId}/todos/{todoId}").buildAndExpand(listId, item.getId()).toUri();
         return ResponseEntity.created(location).body(TodoItemDto.from(item));
-
     }
 
     @DeleteMapping("/{listId}/todos/{todoId}")

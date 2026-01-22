@@ -12,7 +12,7 @@ public class TodoList {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
-    private long id;
+    private Long id;
 
     @Getter
     @Setter
